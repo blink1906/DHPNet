@@ -1,0 +1,58 @@
+model_paras:
+  final_act: False
+  nf_max: 128
+  nf_start: 64
+  spatial_size: 32
+  dropout_prob: 0.1
+  frame_channels: 3
+  flow_channels: 2
+  clip_hist: 3
+  clip_pred: 1
+  num_flows: 3
+  proto_size: 8
+  feature_dim: 1024
+  proto_dim: 1024
+  drop_out: 0
+  shrink_thres: 0
+
+
+
+device: cuda:0
+dataset_base_dir: /data/ped2
+dataset_name: ped2
+exp_name: ped2
+ckpt_root_flow: /ped2/ckpt_flow
+ckpt_root_frame: /ped2/ckpt_frame
+log_root_flow: /ped2/log_flow
+log_root_frame: /hped2/log_frame
+eval_root: /ped2/eval
+
+pretrained: False
+model_savename: model.pth
+# num of iterations to log
+logevery: 100
+
+# num of epoch to save models
+saveevery: 1
+
+# training setting
+num_epochs: 20
+batchsize: 128
+lr: 0.0001
+num_workers: 8
+# alpha for gradient loss
+alpha: 1
+# use L1 or L2 recon loss
+intensity_loss_norm: 2
+lam_frame_pred: 0
+lam_frame_grad: 0
+lam_frame_ortho: 0.5
+lam_frame_sep: 0.5
+lam_frame: 1
+lam_flow: 0.05
+lam_correspondence: 1
+
+
+
+
+
